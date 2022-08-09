@@ -1,0 +1,8 @@
+h3,h4,h5,.card-body{
+    color: #000066 ;
+    text-align: center;
+}
+.card{
+    width: 20%;
+    margin: auto;
+}

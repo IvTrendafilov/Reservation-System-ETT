@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../client/navbar/navbarClient.css"/>
+
+</head>
+<nav class ="navbar h-100 align-items-start" id="navbar">
+    <div class="navbar-brand">
+        <img src="../../assets/ett_logo.jpg" alt="ETT Logo" style="height: 50%;width: 100%"/>
+    </div>
+    <ul class="nav navbar-nav w-100">
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/">
+                <i class="bi bi-calendar"></i>&nbsp;
+                <span>Make a Booking</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/mybookings">
+                <i class="bi bi-calendar3"></i>&nbsp;
+                <span>My Bookings</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="nav-item align-self-end w-100">
+        <div class="text-wrap m-2 overflow-hidden" style="font-size: small;">
+            <small class="ett-text" id="email"></small>
+        </div>
+        <a class="nav-link px-2" id="logout">
+            <i class="bi bi-box-arrow-left"></i>&nbsp;
+            <span>Logout</span>
+        </a>
+    </div>
+</nav>
+<script>
+    $(function () {
+        function onsuccess(data) {
+            localStorage.setItem("userDetails", JSON.stringify(data));
+            $("#email").text(data.email);
+        }
+        if (!localStorage.getItem("userDetails")) {
+            fetch('GET', '/api/userdetails/', null, onsuccess, null);
+        } else {
+            const data = JSON.parse(localStorage.getItem("userDetails"));
+            $("#email").text(data.email);
+        }
+
+        $("#logout").on('click', function () {
+            logout();
+        });
+    });
+</script>

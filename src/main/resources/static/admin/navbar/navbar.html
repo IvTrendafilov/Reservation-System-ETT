@@ -1,0 +1,82 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../admin/navbar/navbarAdmin.css"/>
+
+</head>
+<nav class ="navbar h-100 align-items-start" id="navbar">
+    <div class="navbar-brand">
+        <img src="../../assets/ett_logo.jpg" alt="ETT Logo" style="height: 50%;width: 100%"/>
+    </div>
+    <ul class="nav navbar-nav w-100">
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/admin">
+                <i class="bi bi-book"></i>&nbsp;
+                <span>All bookings</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/admin/pendingbookings">
+                <i class="bi bi-book-half"></i>&nbsp;
+                <span>Pending Bookings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/admin/makeabooking">
+                <i class="bi bi-calendar"></i>&nbsp;
+                <span>Make a Booking</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class ="nav-link px-2" href="/admin/mybookings">
+                <i class="bi bi-calendar3"></i>&nbsp;
+                <span>My Bookings</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class ="nav-link dropdown-toggle px-2" type="button" id="navbarSettingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i>&nbsp;
+                <span>Settings</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarSettingsDropdown">
+                <li><a class="dropdown-item ett-text" href="/admin/settings">General settings</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/weekschedules">Week schedules</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/dayschedule">Day schedules</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/dayscheduleexception">Day schedule exception</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/device">Devices</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/devicetypes">Device Types</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/interactivemap">Interactive map</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/facility">Facilities</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/admin">Admins</a></li>
+                <li><a class="dropdown-item ett-text" href="/admin/manual">Manual</a></li>
+
+            </ul>
+        </li>
+    </ul>
+    <div class="nav-item align-self-end w-100">
+        <div class="text-wrap m-2 overflow-hidden" style="font-size: small;">
+            <small class="ett-text" id="email"></small>
+        </div>
+        <a class="nav-link px-2" id="logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</nav>
+<script>
+    $(function () {
+        function onsuccess(data) {
+            localStorage.setItem("userDetails", JSON.stringify(data));
+            $("#email").text(data.email);
+        }
+        if (!localStorage.getItem("userDetails")) {
+            fetch('GET', '/api/userdetails/', null, onsuccess, null);
+        } else {
+            const data = JSON.parse(localStorage.getItem("userDetails"));
+            $("#email").text(data.email);
+        }
+
+        $("#logout").on('click', function () {
+            logout();
+        });
+    });
+</script>

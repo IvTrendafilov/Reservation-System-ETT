@@ -1,0 +1,96 @@
+html, body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.body {
+    padding-left: 192px;
+    width: 100%;
+}
+.header {
+    border-bottom: solid 1px black;
+    /*If you want to change the color of the header you can do it from here*/
+    background: #1d489c;
+    margin: 0;
+}
+#navbar {
+    position: fixed;
+    font-size: 17px;
+    width: 180px;
+    /*If you want to change the colour of the navigation bar you can do it from here*/
+    background-color: #ffffff;
+    border-right: solid 1px #000011;
+}
+
+.nav-item {
+    position: relative;
+    //TODO: FIX LATER margin-bottom: 30px;
+}
+
+.nav-link:hover {
+    /*If you want to change the background colour and the color of the text when hovered in the navigaiton bar you can do it from here*/
+
+    background-color: #000066;
+    color: white;
+}
+.dropdown-item:hover{
+    /*If you want to change the background colour and the color of the text when hovered in the navigaiton bar you can do it from here*/
+
+    background-color:#000066 ;
+    color: white;
+}
+.card {
+    border-color: #000011 !important;
+}
+
+.nav-link {
+    /*If you want to change the colours of the text in the navigaiton bar you can do it from here*/
+    color: #000066
+}
+
+
+.ett-text {
+    /*If you want to change the colours of the text you can do it from here*/
+
+    color: #000066;
+}
+
+.ett-header{
+    /*If you want to change the color of the text in the header you can do it from here*/
+    color: white;
+}
+
+.create-new-entity {
+    cursor: pointer;
+}
+
+.table-buttons {
+    margin-right: 5px !important;
+    background-color: #1d489c !important;
+    border-color: #1d489c !important;
+}
+
+.dropdown-menu {
+    position: absolute !important;
+    width: 100% !important;
+}
+
+.draggable-device {
+    position: absolute !important;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.sortable {
+    cursor: pointer;
+}
+
+.sortable:hover {
+    background-color: #d6d6d6;
+}
+
+
+
+
+

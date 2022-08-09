@@ -1,0 +1,5 @@
+.draggable-device {
+    position: absolute !important;
+    font-size: 30px;
+    cursor: pointer;
+}
